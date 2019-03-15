@@ -114,4 +114,17 @@ Creation-Date: 2015-02-16T20:45:51+01:00';
 			];
 	}
 
+
+
+	/**
+	 * @dataProvider dataTypical
+	 */
+	function testMetaWithEmptyValue($text)
+	{
+		$this->assertSame("wiki-val: 42\n\n" . $text, (new Encoder())->encode([
+			'wiki-foramt' => Null,
+			'wiki-val' => 42
+		], $text));
+	}
+
 }

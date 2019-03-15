@@ -27,7 +27,7 @@ class Encoder
 			self::assertMetaPair($key, $val);
 			$xs[] = self::formatMetaPair($key, $val);
 		}
-		return implode("\n", $xs) . "\n\n$text";
+		return implode("\n", array_filter($xs)) . "\n\n$text";
 	}
 
 
@@ -43,6 +43,9 @@ class Encoder
 
 	private static function formatMetaPair($key, $val)
 	{
+		if (empty($val)) {
+			return Null;
+		}
 		if (is_array($val)) {
 			$val = json_encode($val);
 		}

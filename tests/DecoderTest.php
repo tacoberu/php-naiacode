@@ -99,4 +99,20 @@ Creation-Date: 2015-02-16T20:45:51+01:00
 			];
 	}
 
+
+
+	/**
+	 * @dataProvider dataTypical
+	 */
+	function testMetaWithEmptyValue($text)
+	{
+		$except = [
+			trim($text),
+			[
+				'wiki-format' => ['zim', '0.4']
+			],
+		];
+		$this->assertSame($except, (new Decoder())->decode("Content-Type: \nWiki-Format: [\"zim\",\"0.4\"]\n\n" . $text));
+	}
+
 }

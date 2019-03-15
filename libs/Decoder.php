@@ -29,7 +29,7 @@ class Decoder
 			list($key, $val) = explode(':', $line, 2);
 			$metas[strtolower(trim($key))] = self::parseMetaValue(trim($val));
 		}
-		return [trim($content), $metas];
+		return [trim($content), array_filter($metas)];
 	}
 
 
@@ -63,6 +63,9 @@ class Decoder
 
 	private static function parseMetaValue($val)
 	{
+		if (empty($val)) {
+			return Null;
+		}
 		if ($val{0} === '[' || $val{0} === '{') {
 			$json = json_decode($val);
 			if (is_array($json) || is_object($json)) {
