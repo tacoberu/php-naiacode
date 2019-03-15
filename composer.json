@@ -1,0 +1,27 @@
+{
+    "name": "tacoberu/php-naiacode",
+    "description": "De/Serialization text with meta from/to human readable text string.",
+    "keywords": ["parser", "file-format", "serialize", "human", "header"],
+    "type": "library",
+    "require": {
+        "php": ">=5.3.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "php": ">=5.3.0",
+        "tracy/tracy": "@dev",
+        "phpunit/phpunit": "^4"
+    },
+    "authors": [
+        {
+            "name": "Martin Takáč",
+            "email": "martin@takac.name"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "libs/"
+        ]
+    },
+    "license": "MIT"
+}
