@@ -66,7 +66,7 @@ class Decoder
 		if (empty($val)) {
 			return Null;
 		}
-		if ($val{0} === '[' || $val{0} === '{') {
+		if ($val[0] === '[' || $val[0] === '{') {
 			$json = json_decode($val);
 			if (is_array($json) || is_object($json)) {
 				return $json;

@@ -84,7 +84,11 @@ Creation-Date: 2015-02-16T20:45:51+01:00
 				'content-type' => 'text/x-zim-wiki',
 			],
 		];
-		$this->assertEquals($except, (new Decoder())->decode("Wiki-Format: {\"vendor\":\"zim\",\"version\":\"0.4\"}\nContent-Type: text/x-zim-wiki\n\n" . $text));
+		$res = (new Decoder())->decode("Wiki-Format: {\"vendor\":\"zim\",\"version\":\"0.4\"}\nContent-Type: text/x-zim-wiki\n\n" . $text);
+		$this->assertSame($except[0], $res[0]);
+		$this->assertSame($except[1]['content-type'], $res[1]['content-type']);
+		$this->assertEquals($except[1]['wiki-format']->vendor, $res[1]['wiki-format']->vendor);
+		$this->assertEquals($except[1]['wiki-format']->version, $res[1]['wiki-format']->version);
 	}
 
 
